@@ -1,1 +1,1 @@
-# SF-Quick-Note-Taker
+# quick-note-taker
