@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron . --ozone-platform=x11 --disable-gpu --no-sandbox > electron.log 2>&1"
+    "start": "electron ."
   },
   "devDependencies": {
     "electron": "^40.8.4"
