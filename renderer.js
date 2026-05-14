@@ -28,6 +28,24 @@ window.addEventListener('DOMContentLoaded', async () => {
     });
 
 
+    // NEW: Menu action listeners
+    window.electronAPI.onMenuAction('menu-new-note', () => {
+        newNoteBtn.click();    // reuse the existing button logic
+    });
+
+    window.electronAPI.onMenuAction('menu-open-file', () => {
+        openFileBtn.click();   // reuse the existing button logic
+    });
+
+    window.electronAPI.onMenuAction('menu-save', () => {
+        saveBtn.click();       // reuse the existing button logic
+    });
+
+    window.electronAPI.onMenuAction('menu-save-as', () => {
+        saveAsBtn.click();     // reuse the existing button logic
+    });
+
+    
     const saveNote = await window.electronAPI.loadNote();
     textarea.value = saveNote;
     let lastSavedText = textarea.value;
@@ -51,7 +69,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     let debounceTimer;
 
-    textarea.addEventListner('input', () => {
+    textarea.addEventListener('input', () => {
         statusEl.textContent = 'Changes detected - auto-saving in 5s...';
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(autoSave, 5000);
